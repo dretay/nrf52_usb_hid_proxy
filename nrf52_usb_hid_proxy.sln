@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.438
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nrf52_usb_hid_proxy", "nrf52_usb_hid_proxy\nrf52_usb_hid_proxy.vcxproj", "{A4A7AEC5-981B-4A8D-903C-0AC24B611C45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|VisualGDB = Debug|VisualGDB
+		Release|VisualGDB = Release|VisualGDB
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4A7AEC5-981B-4A8D-903C-0AC24B611C45}.Debug|VisualGDB.ActiveCfg = Debug|VisualGDB
+		{A4A7AEC5-981B-4A8D-903C-0AC24B611C45}.Debug|VisualGDB.Build.0 = Debug|VisualGDB
+		{A4A7AEC5-981B-4A8D-903C-0AC24B611C45}.Release|VisualGDB.ActiveCfg = Release|VisualGDB
+		{A4A7AEC5-981B-4A8D-903C-0AC24B611C45}.Release|VisualGDB.Build.0 = Release|VisualGDB
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F0954B30-AD70-417E-96F1-196E069B304E}
+	EndGlobalSection
+EndGlobal

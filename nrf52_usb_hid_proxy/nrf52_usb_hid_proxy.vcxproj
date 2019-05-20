@@ -55,7 +55,15 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
     <ClCompile>
       <CLanguageStandard>C99</CLanguageStandard>
+      <AdditionalIncludeDirectories>../../nanopb-0.3.9-windows-x86;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG=1;RELEASE=1;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <AdditionalLinkerInputs>;%(Link.AdditionalLinkerInputs)</AdditionalLinkerInputs>
+      <LibrarySearchDirectories>;%(Link.LibrarySearchDirectories)</LibrarySearchDirectories>
+      <AdditionalLibraryNames>;%(Link.AdditionalLibraryNames)</AdditionalLibraryNames>
+      <LinkerScript />
+    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
   </ItemGroup>
@@ -66,8 +74,10 @@
     <ClCompile Include="..\..\nanopb-0.3.9-windows-x86\pb_common.c" />
     <ClCompile Include="..\..\nanopb-0.3.9-windows-x86\pb_decode.c" />
     <ClCompile Include="..\..\nanopb-0.3.9-windows-x86\pb_encode.c" />
+    <ClCompile Include="application.c" />
     <ClCompile Include="hid.pb.c" />
     <ClCompile Include="main.c" />
+    <None Include="hid.proto" />
     <None Include="nrf5x.props" />
     <ClCompile Include="$(BSP_ROOT)\nRF5x\modules\nrfx\mdk\system_nrf52.c" />
     <ClCompile Include="$(BSP_ROOT)\nRF5x\modules\nrfx\mdk\gcc_startup_nrf52.S" />
@@ -193,7 +203,9 @@
     <ClInclude Include="..\..\nanopb-0.3.9-windows-x86\pb_common.h" />
     <ClInclude Include="..\..\nanopb-0.3.9-windows-x86\pb_decode.h" />
     <ClInclude Include="..\..\nanopb-0.3.9-windows-x86\pb_encode.h" />
+    <ClInclude Include="application.h" />
     <ClInclude Include="hid.pb.h" />
+    <ClInclude Include="mouse_descriptor.h" />
     <ClInclude Include="sdk_config.h" />
     <ClInclude Include="nrf_peripherals.h" />
     <ClInclude Include="$(BSP_ROOT)\nRF5x\modules\nrfx\mdk\system_nrf51.h" />

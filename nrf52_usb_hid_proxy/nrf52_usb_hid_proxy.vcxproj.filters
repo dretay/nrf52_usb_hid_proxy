@@ -1476,6 +1476,9 @@
     <ClInclude Include="$(BSP_ROOT)\nRF5x\integration\nrfx\legacy\nrf_drv_twis.h">
       <Filter>Header files\Device-specific files\Legacy Peripheral Drivers</Filter>
     </ClInclude>
+    <ClCompile Include="application.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\nanopb-0.3.9-windows-x86\pb.h">
@@ -1493,5 +1496,16 @@
     <ClInclude Include="hid.pb.h">
       <Filter>Header files\nanopb</Filter>
     </ClInclude>
+    <ClInclude Include="application.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="mouse_descriptor.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="hid.proto">
+      <Filter>Source files\nanopb</Filter>
+    </None>
   </ItemGroup>
 </Project>

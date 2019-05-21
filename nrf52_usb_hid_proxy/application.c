@@ -115,7 +115,6 @@ void twi_handler(nrf_drv_twi_evt_t const * p_event, void * p_context)
 	case NRF_DRV_TWI_EVT_DONE:
 		if (p_event->xfer_desc.type == NRF_DRV_TWI_XFER_RX)
 		{
-			NRF_LOG_INFO("rx something!");
 			//     /* Allocate space for the decoded message. */
 			MouseUpdate mouse_update = MouseUpdate_init_zero;
     
@@ -124,30 +123,31 @@ void twi_handler(nrf_drv_twi_evt_t const * p_event, void * p_context)
     
 			/* Now we are ready to decode the message. */
 			bool status = pb_decode_delimited(&decode_stream, MouseUpdate_fields, &mouse_update);
-						
+			ret_code_t err_code;	
 			if (status == true) 
 			{				
 				switch (mouse_update.type)
 				{
 				case MouseUpdate_Type_XY:
 					NRF_LOG_INFO("dx= %d dy= %d", mouse_update.x, mouse_update.y);      
-					app_sched_event_put(&mouse_update, sizeof(mouse_update), mouse_movement_event_handler);
+					err_code = app_sched_event_put(&mouse_update, sizeof(mouse_update), mouse_movement_event_handler);
 					break;
 				case MouseUpdate_Type_LEFT:
 					NRF_LOG_ERROR("Left click");   
-					app_sched_event_put(&mouse_update, sizeof(mouse_update), mouse_click_event_handler);
+					err_code = app_sched_event_put(&mouse_update, sizeof(mouse_update), mouse_click_event_handler);
 					break;
 				case MouseUpdate_Type_RIGHT:
 					NRF_LOG_ERROR("Right click");   
-					app_sched_event_put(&mouse_update, sizeof(mouse_update), mouse_click_event_handler);
+					err_code = app_sched_event_put(&mouse_update, sizeof(mouse_update), mouse_click_event_handler);
 					break;
 				case MouseUpdate_Type_MIDDLE:
 					NRF_LOG_ERROR("Middle click");   
-					app_sched_event_put(&mouse_update, sizeof(mouse_update), mouse_click_event_handler);
+					err_code = app_sched_event_put(&mouse_update, sizeof(mouse_update), mouse_click_event_handler);
 					break;
 				default:
 					NRF_LOG_ERROR("Unrecognized / unsuppored mouse update");   
-				}				
+				}
+				APP_ERROR_CHECK(err_code);
 			}
 			else {      
 				NRF_LOG_ERROR("Decode unsuccessful");   

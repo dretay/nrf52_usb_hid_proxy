@@ -19,6 +19,7 @@
 #include "nrf_drv_twi.h"
 #include "nrf_drv_gpiote.h"
 
+#define MOUSE_UPDATE_SIZE sizeof(MouseUpdate)
 
 #define MOVEMENT_SPEED                  5                                           /**< Number of pixels by which the cursor is moved each time a button is pushed. */
 #define INPUT_REPORT_COUNT              3                                           /**< Number of input reports in this application. */
